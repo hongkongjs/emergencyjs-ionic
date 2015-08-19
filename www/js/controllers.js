@@ -1,20 +1,32 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+// var config = require('./config');
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+.controller('TeamCtrl', function($scope, $http, Config) {
 
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
+  $http.get('https://slack.com/api/users.list?token=xoxp-4501575029-4501575033-9276716226-e1d85f').then(function(users) {
+
+    $scope.members = users.data.members;
+
+  });
+
+})
+
+.controller('MemberCtrl', function($scope, $http, $stateParams) {
+  
+  $http.get('https://slack.com/api/users.info?token=xoxp-4501575029-4501575033-9276716226-e1d85f&user=' + $stateParams.memberId).then(function(member) {
+
+    $scope.member = member.data;
+
+  });
+
+  // $scope.member = {name: "Kevin"};
+
+})
+
+
+.controller('ChatsCtrl', function($scope) {
+  
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {

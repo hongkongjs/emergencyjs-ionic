@@ -1,1 +1,14 @@
 /* Empty. Add your own CSS if you like */
+
+.team .col {
+	text-align: center;
+}
+
+.team .col p {
+	margin-top: 4px;
+	margin-bottom: 10px;
+}
+
+.team .col img {
+	border: solid 1px #999;
+}

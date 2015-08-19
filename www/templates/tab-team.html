@@ -1,0 +1,29 @@
+<ion-view view-title="The Team">
+  <ion-content class="padding">
+
+  <h2>Emergency JS Team</h2>
+  <p>At your service</p>
+
+  <div ng-repeat="member in members" ng-if="$index % 3 == 0" class="row team">
+    <div class="col col-33">
+      <a href="#/tab/team/{{ members[$index].id }}">
+        <img src="{{ members[$index].profile.image_72 }}">
+      </a>
+      <p>{{ members[$index].profile.first_name }}</p>
+    </div>
+    <div class="col col-33">
+      <a href="#/tab/team/{{ members[$index + 1].id }}">
+        <img src="{{ members[$index + 1].profile.image_72 }}">
+      </a>
+      <p>{{ members[$index + 1].profile.first_name }}</p>
+    </div>
+    <div class="col col-33">
+      <a href="#/tab/team/{{ members[$index + 2].id }}">
+        <img src="{{ members[$index + 2].profile.image_72 }}">
+      </a>
+      <p>{{ members[$index + 2].profile.first_name }}</p>
+    </div>
+  </div>
+
+  </ion-content>
+</ion-view>
