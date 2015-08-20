@@ -19,14 +19,21 @@ angular.module('starter.controllers', [])
     $scope.member = member.data;
 
   });
-
-  // $scope.member = {name: "Kevin"};
-
 })
 
 
-.controller('ChatsCtrl', function($scope) {
-  
+.controller('ChatsCtrl', function($scope, $http) {
+  $scope.sendMessage = function(message) {
+
+    $http.get('https://slack.com/api/chat.postMessage?token=xoxp-4501575029-4501575033-9276716226-e1d85f&channel=C07NP7YBG&text=' + message).then(function(member) {
+
+      // TODO show modal
+      // TODO clear the fields
+      // TODO redirect somewhere :)
+
+    });
+
+  }
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {

@@ -11,11 +11,11 @@
         <input type="text" placeholder="Email Address">
       </label>      
       <label class="item item-input">
-        <textarea placeholder="Emergency Details" style="height: 100px"></textarea>
+        <textarea placeholder="Emergency Details" style="height: 100px" ng-model="message"></textarea>
       </label>
     </div>
     <div class="padding">
-      <button class="button button-energized button-full">
+      <button class="button button-energized button-full" ng-click="sendMessage(message)">
         Submit Your Emergency
       </button>
     </div>
