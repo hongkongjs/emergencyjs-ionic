@@ -1,23 +1,25 @@
 <ion-view view-title="Your Emergency">
   <ion-content>
-    <div class="list">
-      <label class="item item-input">
-        <input type="text" placeholder="First Name">
-      </label>
-      <label class="item item-input">
-        <input type="text" placeholder="Last Name">
-      </label>
-      <label class="item item-input">
-        <input type="text" placeholder="Email Address">
-      </label>      
-      <label class="item item-input">
-        <textarea placeholder="Emergency Details" style="height: 100px" ng-model="message"></textarea>
-      </label>
-    </div>
-    <div class="padding">
-      <button class="button button-energized button-full" ng-click="sendMessage(message)">
-        Submit Your Emergency
-      </button>
-    </div>
+    <form name="emergencyform" ng-model="emergencyform" ng-submit="sendMessage(firstname, lastname, email, message)" novalidate>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="First Name" ng-model="firstname" name="firstname">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Last Name" ng-model="lastname" name="lastname" ng-disabled="emergencyform.firstname.$pristine">
+        </label>
+        <label class="item item-input">
+          <input type="email" placeholder="Email Address" ng-model="email" name="email">
+        </label>      
+        <label class="item item-input">
+          <textarea placeholder="Emergency Details" style="height: 100px" ng-model="message" name="message" required></textarea>
+        </label>
+      </div>
+      <div class="padding">
+        <button type="submit" class="button button-energized button-full" ng-disabled="emergencyform.$invalid">
+          Submit Your Emergency
+        </button>
+      </div>
+    </form>
   </ion-content>
 </ion-view>
